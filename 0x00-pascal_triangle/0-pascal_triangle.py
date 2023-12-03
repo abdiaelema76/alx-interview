@@ -19,7 +19,7 @@ def pascal_triangle(n):
         row = [1]  # each row in pascal triangle starts with 1
         # computing the values between the first and last 1's
         for j in range(1, i):
-            row.append(triangle[i - 1][j - 1] + triangle[i - 1[j]])
+            row.append(triangle[i - 1][j - 1] + triangle[i - 1][j])
 
         row.append(1)  # each row in pascal triangle ends with 1
         triangle.append(row)
