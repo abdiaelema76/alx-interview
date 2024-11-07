@@ -1,7 +1,7 @@
-
 #!/usr/bin/python3
 """Solving N Queens with Backtracing"""
 import sys
+
 
 def nqueens(n, y, board):
     """
@@ -33,6 +33,8 @@ def nqueens(n, y, board):
             else:
                 print(board)
             del board[-1]
+
+
 def main():
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
@@ -47,6 +49,7 @@ def main():
         sys.exit(1)
 
     nqueens(n, 0, [])
+
 
 if __name__ == '__main__':
     main()
