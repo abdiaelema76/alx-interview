@@ -16,18 +16,24 @@ def nqueens(n, y, board):
     """
     for x in range(n):
         hold = 0
-        # Check if the current position (y, x) is safe
         for q in board:
-            if x == q[1] or y - x == q[0] - q[1] or x - q[1] == q[0] - y:
+            if x == q[1]:  # Check if in the same column
+                hold = 1
+                break
+            if y - x == q[0] - q[1]:  # Check diagonal conflict
+                hold = 1
+                break
+            if x - q[1] == q[0] - y:  # Check diagonal conflict
                 hold = 1
                 break
         if hold == 0:
-            board.append([y, x])  # Place the queen
-            if y != n - 1:  # If not the last row, keep searching
-                nqueens(n, y + 1, board)
-            else:  # If last row, print the solution
-                print([[r[1] for r in board] for board in [board]])
-            del board[-1]  # Remove the queen for backtracking
+            board.append([y, x])  # Append the [row, column] pair
+            if y != n - 1:
+                nqueens(n, y + 1, board)  # Recurse for the next row
+            else:
+                # Print the valid solution
+                print(board)
+            del board[-1]  # Backtrack by removing the last placed queen
 
 
 def main():
@@ -36,14 +42,14 @@ def main():
         sys.exit(1)
     try:
         n = int(sys.argv[1])
-    except ValueError:
+    except Exception:
         print('N must be a number')
         sys.exit(1)
     if n < 4:
         print("N must be at least 4")
         sys.exit(1)
 
-    nqueens(n, 0, [])
+    nqueens(n, 0, [])  # Call nqueens starting from row 0
 
 
 if __name__ == '__main__':
