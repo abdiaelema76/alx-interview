@@ -16,7 +16,7 @@ def rotate_2d_matrix(matrix):
     # save original row and column size from input matrix
     N = len(matrix)
 
-    # build rotated matrix in a separate matrix_copy
+    """build rotated matrix in a separate matrix_copy"""
     matrix_copy = []
     copy_row = 0
     for column in range(N):
@@ -26,8 +26,8 @@ def rotate_2d_matrix(matrix):
             matrix_copy[copy_row].append(matrix[row][column])
         copy_row += 1
 
-    # copy contents of matrix_copy into matrix
-    # since matrix is NxN, do not need to resize matrix for rotation
+    """copy contents of matrix_copy into matrix
+     since matrix is NxN, do not need to resize matrix for rotation"""
     for row in range(N):
         for column in range(N):
             matrix[row][column] = matrix_copy[row][column]
