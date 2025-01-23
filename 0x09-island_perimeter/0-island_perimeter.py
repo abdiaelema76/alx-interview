@@ -34,7 +34,7 @@ def island_perimeter(grid):
     cols = len(grid[0])
   
     # Validate grid dimensions
-    assert 1 <= rows <= 100 and 1 <= cols <= 100), "length must be between 1 an 100"
+    assert (1 <= rows <= 100 and 1 <= cols <= 100), "length must be between 1 an 100"
 
     perimeter = 0
     for i in range(rows):
